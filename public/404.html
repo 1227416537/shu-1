@@ -3,10 +3,11 @@
   <head>
     <meta charset="utf-8" />
     <script>
-      // GitHub Pages SPA fallback: redirect all 404s back to index.html
-      window.location.replace(
-        window.location.protocol + '//' + window.location.host + '/read-something/'
-      );
+      // GitHub Pages SPA fallback: redirect all 404s back to the site root.
+      // 仓库名就是网址的第一段路径（例如 /shu-1/），动态读取，以后改仓库名也不会失效。
+      var segments = window.location.pathname.split('/');
+      var repo = segments[1] || '';
+      window.location.replace('/' + repo + '/');
     </script>
   </head>
 </html>
